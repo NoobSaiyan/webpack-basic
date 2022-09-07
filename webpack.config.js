@@ -11,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
     clean: true,
+    assetModuleFilename: '[name][ext]',
   },
   devtool: 'source-map',
   devServer: {
@@ -39,9 +40,10 @@ module.exports = {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
-      //   {
-      //     test: /\.(png|svg|jpg|jpeg|gif)$/i,
-      //   },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   plugins: [
